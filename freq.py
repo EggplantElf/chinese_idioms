@@ -11,10 +11,10 @@ def freq(filename):
                 dic[zi] = 1
             else:
                 dic[zi] += 1
-    print len([k for k in dic if dic[k] > 10])
+    # print len([k for k in dic if dic[k] > 10])
 
-    # for zi in sorted(dic, key = lambda x: dic[x], reverse = True):
-        # print zi, dic[zi]
+    for zi in sorted(dic, key = lambda x: dic[x], reverse = True):
+        print zi, dic[zi]
 
 
 
