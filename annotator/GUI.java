@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.LinkedList;
+import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -34,6 +35,7 @@ public class GUI {
 	public static Writer fw;
 	public static String chara;
 	public static int freq;
+	public static Random rand;
 	
 	
 	public static void main(String[] args) throws IOException {
@@ -102,13 +104,18 @@ public class GUI {
 		
 		mainwindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		GUI.run();
+		rand = new Random();
+		
+		if(args.length>0)
+			GUI.run((new Integer(args[0])).intValue());
+		else
+			GUI.run(1);
 		
 		textt.requestFocus();
 
 	}
 	
-	public static void run() throws IOException {
+	public static void run(int stLine) throws IOException {
 		dict = new LinkedList<String>();
 		FileInputStream fis=new FileInputStream("../wordlist.txt");
 		InputStreamReader isr=new InputStreamReader(fis, "UTF-8");
@@ -124,10 +131,15 @@ public class GUI {
 		fis=new FileInputStream("../vocab.txt");
 		isr=new InputStreamReader(fis, "UTF-8");
 		br=new BufferedReader(isr);
-		fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream("../annotation.txt"),"UTF-8"));
+		fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream("../annotation.txt", true),"UTF-8"));
 //		fw=new FileWriter("/Users/zaa/annotation.txt");
 		
-		lineNum = 1;
+		for(int i=1;i<stLine;i++) {
+			if(br.ready()) 
+				br.readLine();
+		}
+		
+		lineNum = stLine;
 		readLine();
 	}
 	
@@ -149,6 +161,7 @@ public class GUI {
 				text.setText("l#"+lineNum+" "+chara+" f:"+(new Integer(freq)).toString());
 				
 				int logged = 0;
+				LinkedList<String> showIdioms = new LinkedList<String>();
 				for(String idiom : dict) {
 //					for(int i=0;i<idiom.length();i+=3) {
 //						if(idiom.charAt(i)==chara.charAt(0)) {
@@ -163,14 +176,17 @@ public class GUI {
 //					}
 					for(char c : idiom.toCharArray()) {
 						if(c==chara.charAt(0)) {
-							texto.append(idiom+"\n");
+							showIdioms.add(idiom);
 							logged++;
 							break;
 						}
 					}
-					
-					if(logged>=10)
-						break;
+				}
+				for(int i=0;i<10;i++) {
+					int sel = rand.nextInt(logged);
+					texto.append(showIdioms.get(sel)+"\n");
+					showIdioms.remove(sel);
+					logged--;
 				}
 				lineNum++;
 			}
@@ -178,6 +194,8 @@ public class GUI {
 	}
 	
 	public static void saveLine(char c) throws IOException {
+		if(c=='\n')
+			c=' ';
 		fw.write(chara+" "+(new Integer(freq)).toString()+" "+c+"\n");
 		fw.flush();
 		textt.setText("");
