@@ -18,7 +18,7 @@ def find(anno_file, orig_file, pattern):
             else:
                 pos += 'x'
         if len(pos) == len(pattern) and all(pos[i] == pattern[i] or pattern[i] == 'x' for i in range(len(pos))):
-            print line
+            print line,
 
 
 
