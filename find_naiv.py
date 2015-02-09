@@ -16,8 +16,8 @@ def find(anno_file, orig_file, pattern):
             if zi in pos_dict:
                 pos += pos_dict[zi]
             else:
-                pos += 'x'
-        if len(pos) == len(pattern) and all(pos[i] == pattern[i] or pattern[i] == 'x' for i in range(len(pos))):
+                pos += 'u'
+        if len(pos) == len(pattern) and all(pos[i] == pattern[i] or pattern[i] == 'x' or (pattern[i] == 'k' and pos[i] in 'naiv') for i in range(len(pos))):
             print line,
 
 
