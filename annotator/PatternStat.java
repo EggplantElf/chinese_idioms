@@ -85,6 +85,20 @@ public class PatternStat {
 		BufferedWriter fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream("../patternstat.txt"),"UTF-8"));
 		for(Pattern p : pList) {
 			//System.out.println(p.p+" "+p.f);
+			boolean mark=false;
+			for(int i=0;i<p.p.length();i++) {
+				if(p.p.charAt(i)=='f')
+					mark=true;
+			}
+			if(mark)
+				continue;
+			fw.write(p.p+" "+p.f+"\n");
+		}
+		fw.close();
+		
+		fw = new BufferedWriter( new OutputStreamWriter(new FileOutputStream("../patternstat_withF.txt"),"UTF-8"));
+		for(Pattern p : pList) {
+			//System.out.println(p.p+" "+p.f);
 			fw.write(p.p+" "+p.f+"\n");
 		}
 		fw.close();
@@ -110,7 +124,7 @@ public class PatternStat {
 		String ret = new String();
 		for(int i=0;i<s.length();i++) {
 			String r = getPOS(s.substring(i, i+1));
-			if(r.equals("-")||r.equals("f"))
+			if(r.equals("-")/*||r.equals("f")*/)
 				return null;
 			ret+=r;
 		}
