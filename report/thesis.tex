@@ -1,0 +1,121 @@
+\documentclass[12pt,leqno,a4paper]{article}
+% Minimalbeispiel f\"ur Diplom- oder Studienarbeit in Latex
+% OHNE GEWAEHR
+% Antje Schweitzer, Juli 2011 & Juli 2014
+% folgende Dateien gehoeren zu diesem Beispiel:
+% - thesis.tex (der eigentlich Text)
+% - references.bib (die "Datenbank" mit den Literaturverweisen im Bibtex-Format)
+% - example.pdf (eine Beispielgrafik)
+% damit kann man dann nach der Anleitung unten folgendes Dokument erzeugen:
+% - thesis.pdf 
+
+% Minimal example for student papers in LaTeX, can be used as a template
+% without warranty
+% (English "translation" by Nils Reiter, July 2014)
+% You need multiple files for this example to work:
+% - thesis.tex (this file)
+% - references.bib (a BibTeX file containing the bibliographic entries)
+% - example.pdf (an example figure)
+
+% ANLEITUNG -- INSTRUCTIONS
+% To create a PDF, please run the following steps:
+% - pdflatex thesis.tex
+% - bibtex thesis
+% - pdflatex thesis.tex
+% - pdflatex thesis.tex
+% (yes, some steps need to be run multiple times, for reasons)
+
+
+\usepackage{natbib}
+\usepackage{epsfig}
+\usepackage{booktabs}
+% recommended: uncomment following line if you write in German 
+%\usepackeage{german}  
+
+
+\renewcommand{\baselinestretch}{1.3}
+\parskip = \medskipamount
+\frenchspacing
+\bibpunct[; ]{(}{)}{;}{a}{,}{;}
+
+
+\newcommand{\Titel}{Multi-Word Expression bla bla bla}
+
+\includeonly{sect1, sect2, sect3, sect4, sect5}
+
+
+\begin{document}
+
+\begin{titlepage}
+  \large
+  \begin{center}
+    Institut f\"ur Maschinelle Sprachverarbeitung\\
+    Universit\"at Stuttgart\\
+    Pfaffenwaldring 5B\\
+    D-70569 Stuttgart\\    
+      \vfill
+    {\LARGE \bf \Titel} \\
+    \vspace{2cm}
+    Marlene Mustermann\\
+    Term paper 
+      \vfill
+    \begin{tabular}[t]{lr}
+    {Pr\"ufer:} & Prof. Dr. Frida Maier\\
+     & Prof. Dr. Max M\"uller\\
+    {Betreuer:} & Dr. Harald Schmidt\\ 
+    \\
+    \\
+    {Beginn der Arbeit:} & 01.03.2010\\
+    {Ende der Arbeit:} & 31.08.2010\\
+    \end{tabular}
+  \end{center}
+
+  \normalsize
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+
+
+\noindent\textbf{Erkl\"arung (Statement of Authorship)}\\
+
+
+\noindent Hiermit erkl\"are ich, dass ich die vorliegende Arbeit selbst\"andig verfasst habe und dabei keine andere als die angegebene Literatur verwendet habe. Alle Zitate und sinngem\"a\ss{}en Entlehnungen sind als solche unter genauer Angabe der Quelle gekennzeichnet
+
+\noindent (This text is the result of my own work. Material from the published or unpublished work of others, which is referred to in the text, is credited to the author in the text)\\[2cm]
+
+
+\noindent (Marlene Mustermann)
+
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\include{sect1}
+% Introduction
+
+\include{sect2}
+
+
+\include{sect3}
+
+
+\include{sect4}
+
+
+\include{sect5}
+
+
+
+
+%%%%%%%%%%%%%
+% Bibliographie
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+
+
+\end{document}
+ 
