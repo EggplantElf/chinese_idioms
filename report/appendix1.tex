@@ -159,3 +159,70 @@ We also found many nouns for animals in all the three languages. But the kind of
 For the animal dog, it appears in all countries of the three, and also very common in the daily life. So idioms tend to contain them in the sayings. But for the animal tiger, it only distribute in Asian, so it is not surprising that we didn't find it in German and Spanish. For the animal cat, it is also a common animal in the three countries, but only a frequent word in Spanish. One reason may be that cat is one of the most favorite animal in Spain. But for the culture reason, cat is usually used as evil in Chinese. So you won't find many Chinese idioms containing cats, but a lot in Spanish. 
 
 We also found an interesting noun distribution for food. We have bread (German:Brot, Spanish:pan) in German and Spanish, but no matching noun in Chinese. It is known that this kind of food is not a kind of traditional food in China, but it is in Europe. So it is obvious that this noun is so frequent in German (45th with 37 occurrence) and Spanish (25th with 58 occurrence), but no occurrence in Chinese. Instead of bread, we have 饭(rice/food, 193th) and 米(rice, 299th) in the Chinese list, but with rather low frequency. 
+
+\section{Pattern Analysis}
+After analyzing the frequent words in different languages, we also tried to find frequent pattern in Chinese idioms. One important feature of Chinese idioms is that most of the idioms are constructed with four characters (a.k.a. word in idiom), so it is easy to find out pattern for constructing idioms and it would also be important to check the patterns to find out how those four-character idioms are constructed. 
+
+\subsection{Pattern Extraction and Results}
+After annotation, we got word type for frequent words (frequency larger than 9). So we look only for those idioms containing only four frequent words in the dictionary. The results are shown in Table.\ref{tablepaex} (translation for examples are not provided). In the `Pattern' column of the table, n for noun, v for verb, a for adverb and adjective, and i for numeral. 
+
+\begin{table}[htb]
+\caption{\label{tablepaex} {\it Top 20 Frequent Patterns and Example Idioms (ordered in frequency)}}
+\centerline{
+\begin{tabular}{|c|c|c|c|}
+\hline
+Order & Pattern & Frequency & Examples \\
+\hline
+1 & vnvn & 480 & 争权夺利	, 借刀杀人 \\
+\hline
+2 & nnnn & 236 & 人山人海, 唇枪舌剑 \\
+\hline
+3 & anan & 189 & 大头小尾	, 白山黑水 \\
+\hline
+4 & nvnv & 175 & 云消雾散	, 土崩瓦解 \\
+\hline
+5 & nana & 143 & 人多嘴杂	, 地久天长 \\
+\hline
+6 & nnvn & 121 & 井井有条, 日月入怀 \\
+\hline
+7 & anvn & 118 & 先声夺人	, 小鸟依人 \\
+\hline
+8 & annn & 94 & 满城风雨, 满面春风 \\
+\hline
+9 & vnvv & 87 & 临阵脱逃, 倾巢出动 \\
+\hline
+10 & vnnn & 75 & 看人眉眼	, 过眼烟云 \\
+\hline
+11 & anav & 70 & 上情下达	, 冷眼静看 \\
+\hline
+11 & inin & 70 & 一丝一毫	, 千山万水 \\
+\hline
+13 & nnan & 69 & 道边苦李	, 鼎鼎大名 \\
+\hline
+14 & vvvv & 65 & 生死存亡	, 起承转合 \\
+\hline
+14 & vava & 65 & 居高临下	, 弃暗投明 \\
+\hline
+16 & nvnn & 62 & 天随人愿	, 声振林木 \\
+\hline
+17 & vnan & 61 & 垂名青史	, 识途老马 \\
+\hline
+18 & avav & 56 & 南征北战, 寡闻少见 \\
+\hline
+19 & nnav & 55 & 人神共愤	, 原形毕露 \\
+\hline
+20 & nnvv & 49 & 利害得失	, 儿女成行 \\
+\hline
+20 & vvvn & 49 & 招摇过市, 凿凿有据 \\
+\hline
+\end{tabular}}
+\end{table}
+
+\subsection{Discussion for Patterns}
+The Table.\ref{tablepaex} shows top 20 frequent pattern in the dictionary. it is obvious that most of the patterns are somehow belong to parallelism. Half of them (10 patterns) are in `AABB' or `ABAB', and 3 of them are `ABCB' or `ABAC', only one third of them are in unbalanced structure. 
+
+Since that most of the idioms are from Ancient Chinese, it is reasonable that they are quite in the preference to parallelism. Parallelism is one of the most used expression technique for Ancient Chinese literature. Another reason might be that it would be easy to be like in parallelism for the four-word structure. And parallelism is easier for people who use the idioms and read the idioms to remember and recognize them. 
+
+When finding example for patterns and checking the results, we found that it was hard to find an example for some frequent pattern, for example, `annn' and `vvvn'. One reason for this is that most idioms are in parallelism, for those unbalanced patterns, it shouldn't be frequent in the idioms. Another reason is the limitation of NAIV annotation. We only annotated frequent words and didn't provide different annotations for polysemy. So there are many idioms belong to wrong pattern because of the annotation mistake. 
+
+We also tried to use wild cards to extract more kind of patterns, but due to the four-word structural limitation, the results are not satisfying. In the future, we will produce more analysis after getting a more rigorous annotated corpus for Chinese idioms. 
