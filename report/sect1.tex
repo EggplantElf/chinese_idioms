@@ -1,0 +1,19 @@
+\section{Introduction}
+Chinese idioms (成语), are multi-word expressions in Chinese language, mostly derived from history or classical literature. There are many resources for Chinese idioms, with the collection size ranges from 5000 to 20000, depending on the definition.
+
+Most of the idioms consist of four characters/words, carrying more meaning than the sum of the words, since they usually refer to a story, one can not understand the meaning of the idiom without knowing the underlying story.
+
+The origin of the idioms ranges starts from more than 2000 years ago, therefore the use of syntax and meaning of vocabulary can be quite different from modern standard Chinese. 
+
+In this report, we have two focuses on Chinese idioms.
+One is the frequent nouns in Chinese idioms. In concrete, we first annotated the part-of-speeches of the words used in the idioms, then sorted the nouns by their frequencies, and compared them to the most frequent nouns in German and Spanish.
+The other focus is the frequent syntax patterns of Chinese idioms, since we have annotated the part-of-speeches, we could analyze the structures and how they differ from modern Chinese syntax.
+
+\section{Annotation}
+The idioms we used are from a dictionary \cite{song:2014}, containing 13000 idioms. 
+Since the words in the idioms are unannotated, we first have to annotate them. We designed the {\em NAIV} annotation scheme, which  groups the words into four main classes: noun (N), adjective/adverb (A), numeral (I) and verb (V), and those not belong to either of the classes are annotated as functional (F). 
+
+The annotation is not based on word token but word type, i.e. all instances of a word are annotated as the same class. No doubt this will hurt the accuracy, but annotating each word token would require hundreds of hours, therefore we could only first take the approximation and leave the more fine-grained annotation to future works.
+
+The annotation procedure works as follows: (1) sort the words by their frequency, (2) for the words with frequency greater than 9 (about 1200 in total), randomly sample 10 idioms where the word appear, and assign a class for it, (3) each person do the whole annotation once and then compare the result together, discuss and repeat step (2) for conflict results.
+
