@@ -5,12 +5,11 @@ Chinese idioms (成语), are multi-word expressions in Chinese language, mostly 
 
 The origin of the idioms ranges starts from more than 2000 years ago, therefore the use of syntax and meaning of vocabulary can be quite different from modern standard Chinese. 
 
-In this report, we focus our research on two aspect on Chinese idioms.
+In this report\footnote{All the related files and codes used in the report can be downloaded at \url{https://github.com/EggplantElf/chinese_idioms}.}, we focus our research on two aspect of Chinese idioms. 
 One is the frequent nouns in Chinese idioms. In concrete, we first annotated the part-of-speeches of the words used in the idioms, then sorted the nouns by their frequencies, and compared them to the most frequent nouns in German and Spanish \citep{mahlow:2013, Duden:2008, Seco:2004}. 
 The other aspect is the frequent syntax patterns of Chinese idioms, since we have annotated the part-of-speeches, we could explore the structures and how they differ from modern Chinese syntax.
 
 The results in the first part confirmed that most of the frequent nouns are shared in the MWEs of the three languages, we then tried to explain the presence and absence of some words from different aspects.
-
 In the second part we found the most remarkable feature in the syntactic structure, namely the parallelism. 
 
 The report is structured as follows: Section~\ref{anno} describes the annotation guidelines and procedures, Section~\ref{nouns} shows the statistics of the top nouns in Chinese idioms and the comparison to German and Spanish MWEs, Section~\ref{discuss} discusses the possible reasons for the difference between them, Section~\ref{pattern} analyzes the syntactic structures of the idioms. A glossary of the frequent words are given in the appendix.
@@ -23,3 +22,5 @@ The annotation is not based on word token but word type, i.e. all instances of a
 
 The annotation procedure works as follows: (1) sort the words by their frequency, (2) for the words with frequency greater than 9 (about 1200 in total), randomly sample 10 idioms where the word appear, and assign a class for it, (3) each person do the whole annotation once and then compare the result together, discuss and repeat step (2) for conflict results.
 
+
+A major problem we meet during the annotation is the frequent phenomenon of functional shift in ancient Chinese, which changes the syntactic function of a word. For example, the word 衣, which originally means the noun {\em cloth}, also used exclusively as noun in modern Chinese, is frequently shifted as verb {\em to dress} in ancient Chinese and in idioms. Therefore, we have to observe the function of this word in the 10 sample idioms and take the majority as its class. Mistakes could arise from this sampling method, but it is the only feasible way to annotate this amount of words in limited time.
