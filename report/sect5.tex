@@ -1,11 +1,10 @@
 \section{Pattern Analysis}\label{pattern}
-After analyzing the frequent words in different languages, we also tried to find frequent pattern in Chinese idioms. One important feature of Chinese idioms is that most of the idioms are constructed with four characters (a.k.a. word in idiom), so it is easy to find out pattern for constructing idioms and it would also be important to check the patterns to find out how those four-character idioms are constructed. 
+After analyzing the frequent words in different languages, we also tried to find frequent syntactic pattern in Chinese idioms. One important feature of Chinese idioms is that most of the idioms are constructed with four characters/words, it is interesting to look into the structures.
 
 \subsection{Pattern Extraction and Results}
-After annotation, we got word type for frequent words (frequency larger than 9). So we look only for those idioms containing only four frequent words in the dictionary. The results are shown in Table~\ref{tablepaex} (translation for examples are not provided). In the `Pattern' column of the table, n for noun, v for verb, a for adverb and adjective, and i for numeral. 
+After annotating the part-of-speeches for frequent words (frequency larger than 9), we look only for those idioms containing the frequent words in the dictionary. The results are shown in Table~\ref{tablepaex}. In the `Pattern' column of the table, n for noun, v for verb, a for adverb and adjective, and i for numeral. 
 
 \begin{table}[htb]
-\caption{\label{tablepaex} {\it Top 20 Frequent Patterns and Example Idioms (ordered in frequency)}}
 \centerline{
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -54,13 +53,15 @@ Order & Pattern & Frequency & Examples \\
 20 & vvvn & 49 & 招摇过市, 凿凿有据 \\
 \hline
 \end{tabular}}
+\caption{\label{tablepaex} Top 20 Frequent Patterns and Example Idioms (ordered in frequency)}
 \end{table}
 
 \subsection{Discussion for Patterns}
-Table~\ref{tablepaex} shows top 20 frequent pattern in the dictionary. it is obvious that most of the patterns are somehow belong to parallelism. Half of them (10 patterns) are in `AABB' or `ABAB', and 3 of them are `ABCB' or `ABAC', only one third of them are in unbalanced structure. 
+Table~\ref{tablepaex} shows top 20 frequent pattern in the dictionary. It is obvious that most of the high frequency patterns are parallelism, i.e. in the form of `AABB' or `ABAB', and the two parallel parts are both syntactically and semantically similar.
 
-Since that most of the idioms are from Ancient Chinese, it is reasonable that they are quite in the preference to parallelism. Parallelism is one of the most used expression technique for Ancient Chinese literature. Another reason might be that it would be easy to be like in parallelism for the four-word structure. And parallelism is easier for people who use the idioms and read the idioms to remember and recognize them. 
+Parallelism is a very salient feature in the ancient Chinese literature, therefore also in the derived idioms. Since the words in ancient Chinese are monosyllabic, there could be many ambiguities. With parallelism, it is much easier to recognize the intended meaning.
+This also explains why the frequencies of the nouns in Chinese idioms are generally higher than German and Spainish MWEs though the size of dictionary are similar, simply because there are usually more than one nouns in each Chinese idioms.
 
-When finding example for patterns and checking the results, we found that it was hard to find an example for some frequent pattern, for example, `annn' and `vvvn'. One reason for this is that most idioms are in parallelism, for those unbalanced patterns, it shouldn't be frequent in the idioms. Another reason is the limitation of NAIV annotation. We only annotated frequent words and didn't provide different annotations for polysemy. So there are many idioms belong to wrong pattern because of the annotation mistake. 
+% When finding example for patterns and checking the results, we found that it was hard to find an example for some frequent pattern, for example, `annn' and `vvvn'. One reason for this is that most idioms are in parallelism, for those unbalanced patterns, it shouldn't be frequent in the idioms. Another reason is the limitation of NAIV annotation. We only annotated frequent words and didn't provide different annotations for polysemy. So there are many idioms belong to wrong pattern because of the annotation mistake. 
 
-We also tried to use wild cards to extract more kind of patterns, but due to the four-word structural limitation, the results are not satisfying. In the future, we will produce more analysis after getting a more rigorous annotated corpus for Chinese idioms. 
+We also tried to use wild cards to extract more kind of patterns, but due to the four-word structural limitation, the results are not satisfying. In the future, we could produce more analysis after getting a more fine-grained annotated corpus for Chinese idioms. 

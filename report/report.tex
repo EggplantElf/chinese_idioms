@@ -31,6 +31,7 @@
 \usepackage{booktabs}
 \usepackage{url}
 \usepackage{xeCJK}
+\usepackage[toc,page]{appendix}
 \setCJKmainfont{SimSun}
 
 % recommended: uncomment following line if you write in German 
@@ -43,9 +44,9 @@
 \bibpunct[; ]{(}{)}{;}{a}{,}{;}
 
 
-\newcommand{\Titel}{Multi-Word Expression bla bla bla}
+\newcommand{\Titel}{Lexical and Syntactical Analysis \\of Chinese Idioms}
 
-\includeonly{sect1, sect2, sect3, sect4, sect5, appendix1, appendix2}
+\includeonly{sect1, sect2, sect3, sect4, sect5, appendix}
 
 
 \begin{document}
@@ -69,7 +70,7 @@
     % {Betreuer:} & Dr. Harald Schmidt\\ 
     \\
     \\
-    {Beginn der Arbeit:} & 01.03.2010\\
+    % {Beginn der Arbeit:} & 01.03.2010\\
     {Ende der Arbeit:} & 31.08.2010\\
     \end{tabular}
   \end{center}
@@ -111,17 +112,13 @@
 
 \include{sect5}
 
-%\include{appendix1}
-
-\include{appendix2}
-
 
 %%%%%%%%%%%%%
 % Bibliographie
 \bibliographystyle{plainnat}
 \bibliography{references}
 
-
+\include{appendix}
 
 \end{document}
  

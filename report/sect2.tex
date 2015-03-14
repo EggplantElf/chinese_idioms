@@ -1,0 +1,11 @@
+
+\section{Annotation}\label{anno}
+The idioms we used are from a dictionary \citep{song:2014}, containing 13000 idioms. 
+Since the words in the idioms are unannotated, we first have to annotate them. We designed the {\em NAIV} annotation scheme, which  groups the words into four main classes: noun (N), adjective/adverb (A), numeral (I) and verb (V), and those not belong to either of the classes are annotated as functional (F). 
+
+The annotation is not based on word token but word type, i.e. all instances of a word are annotated as the same class. No doubt this will hurt the accuracy, but annotating each word token would require hundreds of hours, therefore we could only first take the approximation and leave the more fine-grained annotation to future works.
+
+The annotation procedure works as follows: (1) sort the words by their frequency, (2) for the words with frequency greater than 9 (about 1200 in total), randomly sample 10 idioms where the word appear, and assign a class for it, (3) each person do the whole annotation once and then compare the result together, discuss and repeat step (2) for conflict results.
+
+
+A major problem we meet during the annotation is the frequent phenomenon of functional shift in ancient Chinese, which changes the syntactic function of a word. For example, the word 衣, which originally means the noun {\em cloth}, also used exclusively as noun in modern Chinese, is frequently shifted as verb {\em to dress} in ancient Chinese and in idioms. Therefore, we have to observe the function of this word in the 10 sample idioms and take the majority as its class. Mistakes could arise from this sampling method, but it is the only feasible way to annotate this amount of words in limited time.
